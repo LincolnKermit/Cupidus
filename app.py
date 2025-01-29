@@ -1,19 +1,17 @@
 import requests as s
+import os
 
-personal_id = ""
+personal_id=os.getenv("PERSONAL_ID", "")
 
 headers = {
     "User-Agent": "Tinder/12.8.0 (iPhone; iOS 15.0; Scale/3.00)",
-    "X-Auth-Token": "",
+    "X-Auth-Token": os.getenv("X_AUTH_TOKEN", ""),
     "Content-Type": "application/json",
 }
 
 if headers["X-Auth-Token"] == "":
     print("Please fill the X-Auth-Token in the headers")
     headers["X-Auth-Token"] = input("X-Auth-Token: ")
-if personal_id == "":
-    print("Please fill your personal id in the file to skip this error")
-    personal_id = input("Enter the personal id to run only this time : ")
 
 
 def get_matches():
@@ -22,7 +20,8 @@ def get_matches():
     response = s.get(url, headers=headers)
     if response.status_code == 200:
         matches = response.json()
-        for match in matches["data"]["matches"]:
+        print("Oldest -> Newest")
+        for match in matches["data"]["matches"][::-1]:
             match_id = match["id"]
             match_name = match["person"]["name"]
             print(f"{i} - Match ID:", match_name, match_id)
@@ -67,6 +66,19 @@ def get_messages(match_id):
         return []
 
 
+def check_status(match_id):
+    messages_list = get_messages(match_id)
+    if len(messages_list) > 0:
+        last_message = messages_list[0]
+        if last_message['from'] == personal_id:
+            print("Nothing to see, you are updated")
+        elif last_message['from'] != personal_id:
+            print("You have a new message")
+            print("Message: ", last_message['message'])
+            print("Sending it to AI...")
+            # TODO ADD AI
+
+
 
 
 def send_message(match_id, message_to_send):
@@ -91,7 +103,6 @@ print("Tinder Runner")
 print("1 - Get Matches")
 print("2 - Get Messages")
 print("3 - Send Message")
-
 choice = int(input("attacker@tinder:~$ "))
 
 if choice == 1:
