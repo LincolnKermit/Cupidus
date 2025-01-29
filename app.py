@@ -48,7 +48,7 @@ def get_name(match_id):
     
 
 def get_messages(match_id):
-    url = f"https://api.gotinder.com/v2/matches/{match_id}/messages?locale=fr&count=100&page_token=MjAyNS0wMS0yOVQwODozMTowMS40Nzla"
+    url = f"https://api.gotinder.com/v2/matches/{match_id}/messages?locale=fr&count=100"
     response = s.get(url, headers=headers)
     if response.status_code == 200:
         messages = response.json()
@@ -103,6 +103,7 @@ print("Tinder Runner")
 print("1 - Get Matches")
 print("2 - Get Messages")
 print("3 - Send Message")
+
 choice = int(input("attacker@tinder:~$ "))
 
 if choice == 1:
