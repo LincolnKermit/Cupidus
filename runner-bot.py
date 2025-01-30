@@ -94,12 +94,11 @@ def check_status(match_id):
             print("You have a new message from ", get_name(match_id))
             print("Message: ", last_message['message'])
             print("Sending it to AI...")
-            response = send_message_to_ai(last_message['message'])
-
-            send_message(match_id, response)
+            # TODO ADD THIS LINE AND ADD API OF AI
+            #response = send_message_to_ai(last_message['message'])
+            #send_message(match_id, response)
+            print("Debug : NO AI API, Skipping...")
             print("----------------------------------------------")
-            exit(0)
-
 
 
 
@@ -122,8 +121,6 @@ def send_message(match_id, message_to_send):
 
 
 
-
-
 def check_status(match_id):
     messages_list = get_messages(match_id)
     if len(messages_list) > 0:
@@ -136,9 +133,6 @@ def check_status(match_id):
             print(f"You have a new message from {get_name(match_id)}")
             print("Message: ", last_message['message'])
             print("Sending it to AI...")
-
-
-
 
 
 
