@@ -1,6 +1,6 @@
-# 🔥 Tinder Runner
+# 🔥 Cupidus
 
-🚀 **Tinder Runner** is a bot that automatically responds to Tinder matches using an AI-powered API to generate engaging and natural replies.
+🚀 **Cupidus** is a bot that automatically responds to Tinder matches using an AI-powered API to generate engaging and natural replies.
 
 
 ## 📌 Features
@@ -15,8 +15,8 @@
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/your-repo/tinder-runner.git
-   cd tinder-runner
+   git clone https://github.com/lincolnkermit/cupidus.git
+   cd cupidus
    pip3 install requests && pip3 install openai
    ```
 
