@@ -1,5 +1,5 @@
 import requests as s
-import os
+import os, time
 from openai import OpenAI
 
 
@@ -29,6 +29,7 @@ exit(0)
 personal_id=os.getenv("PERSONAL_ID", "")
 
 
+
 headers = {
     "User-Agent": "Tinder/12.8.0 (iPhone; iOS 15.0; Scale/3.00)",
     "X-Auth-Token": os.getenv("X_AUTH_TOKEN", ""),
@@ -38,6 +39,8 @@ headers = {
 if headers["X-Auth-Token"] == "":
     print("Please fill the X-Auth-Token in the headers")
     headers["X-Auth-Token"] = input("X-Auth-Token: ")
+
+
 
 
 def get_matches():
@@ -113,7 +116,7 @@ def send_message(match_id, message_to_send):
     }
     response = s.post(url, headers=headers, json=payload)
     if response.status_code == 200:
-        print(f"Message envoyé : {message_to_send}")
+        print(f"Message envoyé : {message_to_send} to {get_name(match_id)}")
     else:
         print(f"Erreur lors de l'envoi du message : {response.status_code} - {response.text}")
 
@@ -124,15 +127,17 @@ def send_message(match_id, message_to_send):
 def check_status(match_id):
     messages_list = get_messages(match_id)
     if len(messages_list) > 0:
-        last_message = messages_list[0]
+        sorted_messages = sorted(messages_list, key=lambda x: x['timestamp'], reverse=True)
+        last_message = sorted_messages[0]
         if last_message == []:
             print(f"Nothing to see, you are updated for {get_name(match_id)}")
         if last_message['from'] == personal_id:
             print(f"Nothing to see, you are updated for {get_name(match_id)}")
         elif last_message['from'] != personal_id:
-            print(f"You have a new message from {get_name(match_id)}")
-            print("Message: ", last_message['message'])
-            print("Sending it to AI...")
+            print(f"Name : {get_name(match_id)} - Message: ", last_message['message'])
+    elif len(messages_list) == 0:
+        send_message(match_id, "Salut, tu va bien?")
+
 
 
 
