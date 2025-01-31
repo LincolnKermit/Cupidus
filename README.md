@@ -58,3 +58,9 @@ To run this project, run
 🪐 Founder of The North Republic Team.
 
 📫 Reach me at: lincolnkermit@thenorthrepublic.com
+
+## Related
+
+
+![Meme](https://preview.redd.it/cfyjaf7zjyqc1.jpeg?auto=webp&s=8d157f5b609261ae53ae8ade787795a85fb33f6d)
+Credits : @?
