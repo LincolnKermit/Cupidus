@@ -49,7 +49,7 @@ To run this project, run
 
 🌱 Currently improving my Web Development skills (Flask, MySQL) and learning Penetration Testing.
 
-💻 Exploring C++, Swift, and system automation.
+💻 Exploring C++, .NET, and system automation.
 
 🎵 Building a music-based social media platform with Spotify API.
 
