@@ -10,6 +10,9 @@
 - ⚡ **Fast & Efficient Automation**: Sends real-time responses.
 - 🖥️ **Monitor Conversations**: Keep track of the conversations with logging system.    
 
+## ⚠️ Warning
+
+This code is not avoiding antibot, as a result, using it too much will get you shadowbanned ( permanantly or temporary ) - Use it at your own risk.
 
 ## 🚀 Installation
 
