@@ -60,7 +60,7 @@ To run this project, run
 
 🪐 Founder of The North Republic Team.
 
-📫 Reach me at: lincolnkermit@thenorthrepublic.com
+📫 Reach me at: bGluY29sbmtlcm1pdEBwcm90b25tYWlsLmNvbQ==
 
 ## Related
 
